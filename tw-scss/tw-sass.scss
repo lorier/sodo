@@ -1,0 +1,101 @@
+@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+//bootstrap was imported from a CDN in the Jade template. I'm importing it here so I can change or utilize variables.
+
+//variables
+$sodoRed: #f05023;
+$sodoAlmostBlack:  #090909;
+$sodoDarkGray: #1f1f1f;
+$sodoGrayRule: #5e5e5e;
+$sodoTan: #f4f2ea;
+$sodoCyan: #0dacbf;
+
+//== Scaffolding
+//
+//## Settings for some of the most global styles.
+
+//** Global text color on `<body>`.
+$text-color:           	#000 !default;
+
+//** Global textual link color.
+$link-color:            $sodoCyan !default;
+
+
+//== Typography
+//
+//## Font, line-height, and color for body text, headings, and more.
+
+$font-family-sans-serif:  "Open Sans", Helvetica, Arial, sans-serif !default;
+$headings-font-family:   "Cabin", Helvetica, Arial, sans-serif !default;
+
+//== Buttons
+.btn {
+	border-radius: 0px !important;
+	text-transform: uppercase;
+}
+.btn-white {
+	border: 1px solid black;
+	background-color: white;
+	color: black;
+}
+
+//== Header and Footer Design
+body {
+	padding-top: 162px;
+	font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+.logo {
+	background: url("../tw-images/texture.jpg");
+	text-align: center;
+	img {
+		width: 321px;
+		padding: 32px 0;
+	}
+
+}
+.navbar-wrap {
+	background-color: $sodoDarkGray;
+	border-top: 1px solid $sodoGrayRule;
+	border-bottom: 1px solid $sodoGrayRule;
+
+}
+.navbar-inverse {
+	text-align: center;
+	ul {
+		display: inline-block;
+		float: none;
+		border-left: 1px solid $sodoGrayRule;
+		border-right: 1px solid $sodoGrayRule;
+	}
+	li {
+		border-right: 1px solid $sodoGrayRule;
+		&:last-child {
+			border-right: 0;
+		}
+		text-transform: uppercase;
+		font-size: 12px;
+		font-family: $headings-font-family;	
+	}
+	.navbar-nav>li>a {
+		&:hover {
+			background-color: $sodoAlmostBlack;
+		}
+		color: white;
+		letter-spacing: 0.1em;
+		padding: 12px 25px;
+	}
+}
+.navbar-collapse.collapse {
+	@media (min-width: 768px){
+		height: 44px !important;
+	}
+}
+
+//== Home Page
+.jumbotron {
+	height: 509px;
+	background: $sodoDarkGray url("../tw-images/sodo-hero.jpg") no-repeat center center; 
+	text-align: center;
+
+}
+
+
