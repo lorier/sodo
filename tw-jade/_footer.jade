@@ -1,4 +1,7 @@
 .footer-wrapper
+	.mobile-facebook.hidden-md.hidden-lg
+		a(href="", target="_blank")
+			img(src="../tw-images/fb.svg")
 	footer.container-fluid
 		.row.border-row
 			.col-sm-12.footer-content-large
@@ -11,14 +14,15 @@
 								.col-md-4.col-centered.address
 									.footer-logo
 											img(src="../tw-images/sodo-logo.svg", alt="Sodo Urbanworks")
-									p.
-										3901 First vAvenue South
-										Seattle, WA 98134
-									a.textlink(href="#") View Map &gt;
-								a.hidden-xs.hidden-sm(href="#",target="_blank")
+									p
+										| 3901 First Avenue South
+										br
+										| Seattle, WA 98134
+									a.textlink(href="https://www.google.com/maps/place/3901+1st+Ave+S,+Seattle,+WA+98134/@47.5682312,-122.3343028,15z/data=!4m2!3m1!1s0x549041cd3b268289:0xdbc6bed8f1caa79a") View Map &gt;
+								a.hidden-xs.hidden-sm(href="https://www.google.com/maps/place/3901+1st+Ave+S,+Seattle,+WA+98134/@47.5682312,-122.3343028,15z/data=!4m2!3m1!1s0x549041cd3b268289:0xdbc6bed8f1caa79a",target="_blank")
 									.col-md-4.col-centered.map
 										//- img(src="../tw-images/footer-map.jpg")
-								.col-md-4.col-centered
+								.col-md-4.col-centered.links-col
 									.row.no-pad.containing-row
 										.col-md-3.facebook.hidden-sm.hidden-xs
 											.facebook-icon
@@ -35,8 +39,8 @@
 												li
 													a(href="leasing-info") Leasing Info
 						.col-md-1.col-lg-2
-		.row
-			.col-md-12.copyright
+		.row.copyright
+			.col-md-12
 					p ©2015 SODO URBAN WORKS. ALL RIGHTS RESERVED. 
 
 

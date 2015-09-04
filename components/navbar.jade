@@ -40,7 +40,8 @@ mixin navbar-fixed(name,id,style)
 		.container-fluid.logo.hidden-xs
 			.row
 				.col-md-12
-					img(src="../tw-images/sodo-logo.svg")
+					a(href='index.html',title="Sodo Urbanworks")
+						img(src="../tw-images/sodo-logo.svg")
 		.navbar-wrap
 			.container
 				.navbar-header
@@ -49,7 +50,8 @@ mixin navbar-fixed(name,id,style)
 						span.icon-bar
 						span.icon-bar
 						span.icon-bar
-					a.navbar-brand.visible-xs-block(href='#') Project name
+					a.navbar-brand.visible-xs-block(href='index.html',title="Sodo Urbanworks")
+						img(src="../tw-images/sodo-logo.svg")
 				.collapse.navbar-collapse( id=id )
 					ul.nav.navbar-nav
 						block

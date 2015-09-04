@@ -3,7 +3,11 @@ append styles
 	// Custom styles for this template
 	//- link(href='../css/starter-template.css', rel='stylesheet')
 block body
-	include _navbar.jade
+	+navbar-fixed("Sodo Urbanworks","navbar","inverse")
+		+nav_item("property.html") The Property
+		+nav_item("available-spaces.html") Available Spaces
+		+nav_item("tenant-directory.html") Tenant Directory
+		+nav_item("leasing-info.html") Leasing Info
 	.jumbotron
 		.container
 			.row
@@ -11,8 +15,8 @@ block body
 					img(src="../tw-images/sodo-hero-masthead.png", alt="Sodo Urbanworks: at the Heart of Industry, Invention and Craft.")
 			.row
 				.col-md-12
-					a.btn.btn-lg.btn-white(href='#', role='button') See available spaces &gt;
-	.container
+					a.btn.btn-lg.btn-white(href='available-spaces.html', role='button') See available spaces &gt;
+	.container.container-intro
 		.intro-wrap
 			.row
 				.col-md-5.hidden-xs.hidden-sm
@@ -27,11 +31,11 @@ block body
 		.row.voffset-lrg
 			.col-md-12.big-map
 				div
-					a.btn.btn-lg.btn-white(href='#', role='button') View Map &gt;
-		.row.voffset-lrg
+					a.btn.btn-lg.btn-white.panel-button(href='available-spaces.html', role='button') View Map &gt;
+		.row.voffset-lrg.hidden-xs.hidden-sm
 			.col-md-12.double-rule-gray
 				div
-	.container-fluid
+	.container-fluid.hidden-xs.hidden-sm
 		.row.image-strip
 			div
 	.tenants-wrapper
@@ -42,22 +46,22 @@ block body
 					h2.our-tenants Our Tenants
 					span.double-rule
 			.row.tenants-row
-				.col-lg-2.col-md-3.col-sm-6.logo1
+				.col-lg-2.col-md-4.col-xs-6.logo1
 					div
 						img(src="../tw-images/vespa-logo.png")
-				.col-lg-2.col-md-3.col-sm-6.logo2
+				.col-lg-2.col-md-4.col-xs-6.logo2
 					div
 						img(src="../tw-images/vespa-logo.png")
-				.col-lg-2.col-md-3.col-sm-6.logo3
+				.col-lg-2.col-md-4.col-xs-6.logo4
 					div
 						img(src="../tw-images/vespa-logo.png")
-				.col-lg-2.col-md-3.col-sm-6.logo4
+				.col-lg-2.col-md-4.col-xs-6.logo4
 					div
 						img(src="../tw-images/vespa-logo.png")
-				.col-lg-2.col-md-3.col-sm-6.logo5
+				.col-lg-2.col-md-4.col-xs-6.logo5
 					div
 						img(src="../tw-images/vespa-logo.png")
-				.col-lg-2.col-md-3.col-sm-6.logo6
+				.col-lg-2.col-md-4.col-xs-6.logo6
 					div
 						img(src="../tw-images/vespa-logo.png")
 			.row

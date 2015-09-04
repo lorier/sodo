@@ -3,7 +3,11 @@ append styles
 	// Custom styles for this template
 	//- link(href='../css/starter-template.css', rel='stylesheet')
 block body
-	include _navbar.jade
+	+navbar-fixed("Sodo Urbanworks","navbar","inverse")
+		+nav_item("property.html") The Property
+		+nav_item("available-spaces.html") Available Spaces
+		+nav_item("tenant-directory.html","active") Tenant Directory
+		+nav_item("leasing-info.html") Leasing Info
 	.jumbotron
 		.container
 			.row
