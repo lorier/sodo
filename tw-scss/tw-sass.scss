@@ -1,5 +1,6 @@
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 //bootstrap was imported from a CDN in the Jade template. I'm importing it here so I can change or utilize variables.
+
 //== Mixins
 @mixin capped-links ($color: white) {
 	color: $color;
@@ -19,7 +20,8 @@ $sodoTan: #f4f2ea;
 $sodoCyan: #0dacbf;
 
 $grayRule: 1px solid $sodoGrayRule;
-
+//== Helpers
+.voffset-lrg { padding-top: 30px; padding-bottom: 30px;  }
 //== Scaffolding
 //
 //## Settings for some of the most global styles.
@@ -30,7 +32,6 @@ $text-color:           	#000 !default;
 //** Global textual link color.
 $link-color:            $sodoCyan !default;
 
-
 //== Typography
 //
 //## Font, line-height, and color for body text, headings, and more.
@@ -38,42 +39,64 @@ $link-color:            $sodoCyan !default;
 $font-family-sans-serif:  "Open Sans", Helvetica, Arial, sans-serif !default;
 $headings-font-family:   "Cabin", Helvetica, Arial, sans-serif !default;
 
+h1 {
+	color: $sodoCyan;
+	font-size: 36px;
+	font-weight: 600;
+	margin-top: 10px;
+}
+h2 {
+	@extend h1;
+	text-transform: uppercase;
+	font-size: 30px;
+}
+p {
+	font-size: 15px;
+	line-height: 22px;
+}
 //== Buttons
 .btn {
 	border-radius: 0px !important;
 	text-transform: uppercase;
+	font-family: $headings-font-family;
+	font-size: 15px;
+	font-weight: 600;
 }
 .btn-white {
-	border: 1px solid black;
+	margin-top: 30px;
+	border: 1px solid $sodoLightGray;
 	background-color: white;
 	color: black;
 }
 //== Centered Columns
 //http://www.minimit.com/articles/solutions-tutorials/bootstrap-3-responsive-centered-columns
-.row-centered {
-    text-align:center;
-}
-.col-centered {
-    display:inline-block;
-    // float:none;
-    /* reset the text-align */
-    text-align:left;
-    /* inline-block space fix */
-    // margin-right:-4px;
-}
-//== No Gutters for footer
-//http://stackoverflow.com/questions/21254889/how-can-i-remove-the-gutter-between-bootstrap-3-column
-.row.no-pad {
-  margin-right:0;
-  margin-left:0;
-}
-.row.no-pad > [class*='col-'] {
-  padding-right:0;
-  padding-left:0;
+@media (min-width: $screen-md-min){
+	.row-centered {
+	    text-align:center;
+	}
+	.col-centered {
+	    display:inline-block;
+	    // float:none;
+	    /* reset the text-align */
+	    text-align:left;
+	    /* inline-block space fix */
+	    // margin-right:-4px;
+	}
+	//== No Gutters for footer
+	//http://stackoverflow.com/questions/21254889/how-can-i-remove-the-gutter-between-bootstrap-3-column
+	.row.no-pad {
+	  margin-right:0;
+	  margin-left:0;
+	}
+	.row.no-pad > [class*='col-'] {
+	  padding-right:0;
+	  padding-left:0;
+	}
 }
 
 //== Header and Footer Design
 body {
+	min-height: 2000px;
 	padding-top: 162px;
 	font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
@@ -99,15 +122,24 @@ body {
 		float: none;
 		border-left: 1px solid $sodoGrayRule;
 		border-right: 1px solid $sodoGrayRule;
+		@media (max-width: $screen-sm-max){
+			display: block;
+			border: none;
+			margin-top: 0;
+			margin-bottom: 0;
+		}
 	}
 	li {
 		border-right: 1px solid $sodoGrayRule;
 		&:last-child {
 			border-right: 0;
 		}
-		// text-transform: uppercase;
-		// font-size: 12px;
-		// font-family: $headings-font-family;	
+		&.active a {
+			color: $sodoCyan;
+		}
+		@media (max-width: $screen-sm-max){
+			border-top: 1px solid $sodoGrayRule;
+		}
 	}
 	.navbar-nav>li>a {
 		&:hover {
@@ -133,35 +165,145 @@ body {
 	text-align: center;
 
 }
+//== Carousel and Intro
+.intro-wrap {
+	background-color: $sodoTan;
+}
+.intro {
+	padding-top: 60px;
+	padding-right: 140px;
+}
+.double-rule-cyan {
+	background:  url("../tw-images/double-rule-cyan.png") 0 0 repeat-x;
+	width: 81px;
+	height: 13px;
+}
+
+//== Big Map
+.col-md-12.big-map div {
+	background: $sodoTan url("../tw-images/homepage-map.jpg") top center no-repeat;
+	height: 350px;
+	text-align: right;
+	padding-top:300px;
+	padding-right: 20px;
+	position: relative;
+	a {
+		display: inline-block;
+	    position: absolute;
+	    right: 26px;
+	    bottom: 26px;
+	}
+}
+
+.double-rule-gray div {
+	width: 100%;
+	background: #fff url("../tw-images/double-rule-gray.png") 0 0 repeat-x;
+	height: 20px;
+}
+//==Image Strip
+.image-strip div{
+	height: 248px;
+	background: $sodoLightGray url("../tw-images/home-image-strip.jpg") top center no-repeat;
+}
+//== Our Tenants
+.tenants-wrapper {
+	background-color: $sodoTan;
+	text-align: center;
+}
+// .double-rule {
+// 	display: inline-block;
+// 	content: url("../tw-images/double-rule-cyan.png");	
+// }
+.tenants h2 {
+	display: inline-block;
+	padding-bottom: 20px;
+	&:before {
+		content: url("../tw-images/double-rule-cyan.png");	
+		font-size: 24pt;
+	    text-align: center;
+	    position: relative;
+	    top: -9px;
+	    padding-right: 10px;
+	}
+	&:after {
+		content: url("../tw-images/double-rule-cyan.png");	
+		font-size: 24pt;
+	    text-align: center;
+	    position: relative;
+	    top: -9px;
+	    padding-left: 10px;
+	}
+
+}
+.tenants-row div {
+		height: 110px;
+		display: table;
+		text-align: center;
+	div {
+		display: table-cell;
+		vertical-align: middle;
+	}
+	&.logo1 div{
+		background-color: black;
+	}
+	&.logo2 div{
+		background-color: #fb5c21;
+	}
+	&.logo3 div{
+		background-color: #607bdf;
+	}
+	&.logo4 div{
+		background-color: white;
+	}
+	&.logo5 div{
+		background-color: #608a29;
+	}
+	&.logo6 div{
+		background-color: black;
+	}
+	img {
+
+		width: 90%
+	}
+}
+.tenants .button-container {
+	text-align: right;
+	padding-right: 30px 0;
+	padding-bottom: 40px;
+}
+
 //== Footer
 .footer-wrapper {
  	background-color: $sodoMediumGray;
  	padding-top:27px;
 }
 footer.container-fluid {
-
 	background: $sodoDarkGray url("../tw-images/texturedark.jpg") 0 0 repeat;
+}
+.row.border-row {
 	border-top: $grayRule;
 	border-bottom: $grayRule;
-}
+	}	
 
 .footer-content>col-md-3 {
 	border-left: $grayRule;
 	border-right: $grayRule;
 }
-.containing-row {
- 	height: 150px;
- 	.col-centered,
- 	.facebook,
- 	.footer-links {
- 		height: 100%;
- 	}
+@media (min-width: $screen-md-min){
+	.containing-row {
+	 	height: 150px;
+	 	.col-centered,
+	 	.facebook,
+	 	.footer-links {
+	 		height: 100%;
+	 	}
+	}
 }
-
 .map{
 	vertical-align: bottom;
 	line-height: 0;
 	background: url("../tw-images/footer-map.jpg") 0 0 no-repeat;
+	background-size: cover;
 }
 .map a {
 	display: block;
@@ -169,15 +311,26 @@ footer.container-fluid {
 .address, 
 .footer-links {
 	background-color: $sodoDarkGray;
-	padding: 30px !important;
+	padding: 25px !important;
 	color: white;
 	border-left: $grayRule;
 	border-right: $grayRule;
+	li{
+		padding-bottom: 5px;
+	}
 }
 .address {
+	padding: 30px !important;
+}
+.address p{
+	font-size: 14px;
+	margin: 5px 0 0 0;
 }
 .address a {
 	@include capped-links($sodoCyan);
+}
+.footer-logo {
+	width: 145px;
 }
 .footer-links a {
 	@include capped-links;
@@ -190,7 +343,7 @@ footer.container-fluid {
     height: 40px;
     display: table-cell;
     a {
-    	padding: 5px;
+    	padding: 12px;
     	display: block;
     	background-color: $sodoDarkGray;
     	border-top: $grayRule;
@@ -199,9 +352,14 @@ footer.container-fluid {
 }
 .copyright {
 	background-color: $sodoMediumGray;
-	font-size: 10px;
-	text-transform: uppercase;
-	color: $sodoLightGray;
+	text-align: center;
+	padding-top: 5px;
+	p{
+		font-size: 10px;
+		text-transform: uppercase;
+		color: $sodoLightGray;		
+	}
+
 }
 
 

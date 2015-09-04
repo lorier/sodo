@@ -1,40 +1,40 @@
 .footer-wrapper
 	footer.container-fluid
-		.row
-			.col-sm-12.footer-content-large.hidden-sm
+		.row.border-row
+			.col-sm-12.footer-content-large
 				//- http://www.minimit.com/articles/solutions-tutorials/bootstrap-3-responsive-centered-columns
 				.container.footer-content
 					.row.row-centered.no-pad
-						.col-md-2
-						.col-md-8
+						.col-md-1.col-lg-2
+						.col-md-10.col-lg-8
 							.row.row-centered.no-pad.containing-row
 								.col-md-4.col-centered.address
 									.footer-logo
 											img(src="../tw-images/sodo-logo.svg", alt="Sodo Urbanworks")
 									p.
-										3901 First Avenue South
+										3901 First vAvenue South
 										Seattle, WA 98134
 									a.textlink(href="#") View Map &gt;
-								a(href="#",target="_blank")
+								a.hidden-xs.hidden-sm(href="#",target="_blank")
 									.col-md-4.col-centered.map
 										//- img(src="../tw-images/footer-map.jpg")
 								.col-md-4.col-centered
 									.row.no-pad.containing-row
-										.col-md-3.facebook
+										.col-md-3.facebook.hidden-sm.hidden-xs
 											.facebook-icon
 												a(href="", target="_blank")
 													img(src="../tw-images/fb.svg")
 										.col-md-9.footer-links
 											ul.list-unstyled
 												li
-													a(href="") The Property
+													a(href="property.html") The Property
 												li
-													a(href="") Available Spaces
+													a(href="available-spaces.html") Available Spaces
 												li
-													a(href="") Tenant Directory
+													a(href="tenant-directory") Tenant Directory
 												li
-													a(href="") Leasing Info
-						.col-md-2
+													a(href="leasing-info") Leasing Info
+						.col-md-1.col-lg-2
 		.row
 			.col-md-12.copyright
 					p ©2015 SODO URBAN WORKS. ALL RIGHTS RESERVED. 

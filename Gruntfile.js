@@ -109,7 +109,12 @@ module.exports = function(grunt) {
 	      }
 	    },
 	    files: {
-	      "tw-html/index.html": "tw-jade/index.jade"
+	      "tw-html/index.html": "tw-jade/index.jade",
+          "tw-html/property.html": "tw-jade/property.jade",
+          "tw-html/available-spaces.html": "tw-jade/available-spaces.jade",
+          "tw-html/tenant-directory.html": "tw-jade/tenant-directory.jade",
+          "tw-html/leasing-info.html": "tw-jade/leasing-info.jade"
+
 	    }
 	  },
 	  prod: {
@@ -120,7 +125,11 @@ module.exports = function(grunt) {
 	      }
 	    },
 	    files: {
-	      "tw-html/index.html": "tw-jade/index.jade"
+          "tw-html/index.html": "tw-jade/index.jade",
+          "tw-html/property.html": "tw-jade/property.jade",
+          "tw-html/available-spaces.html": "tw-jade/available-spaces.jade",
+          "tw-html/tenant-directory.html": "tw-jade/tenant-directory.jade",
+          "tw-html/leasing-info.html": "tw-jade/leasing-info.jade"
 	    }
 	  }
 	} // jade
