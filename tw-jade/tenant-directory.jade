@@ -2,69 +2,44 @@ extends ../_bootstrap
 append styles
 	// Custom styles for this template
 	//- link(href='../css/starter-template.css', rel='stylesheet')
-block body
+block prepend body
+	body.available
 	+navbar-fixed("Sodo Urbanworks","navbar","inverse")
 		+nav_item("property.html") The Property
 		+nav_item("available-spaces.html") Available Spaces
-		+nav_item("tenant-directory.html","active") Tenant Directory
+		+nav_item("tenant-directory.html", "active") Tenant Directory
 		+nav_item("leasing-info.html") Leasing Info
-	.jumbotron
-		.container
-			.row
-				.col-md-12.hero-text
-					img(src="../tw-images/sodo-hero-masthead.png", alt="Sodo Urbanworks: at the Heart of Industry, Invention and Craft.")
+	.container.container-intro
+		.intro-wrap.voffset-margin
 			.row
 				.col-md-12
-					a.btn.btn-lg.btn-white(href='#', role='button') See available spaces &gt;
-	.container
-		.intro-wrap
+					h1 Featured Tenants
 			.row
-				.col-md-5.hidden-xs.hidden-sm
-					+carousel("home-carousel",[{image:"../tw-images/home-carousel-1.jpg"}])
-				.col-md-7
-					.intro
-						.double-rule-cyan
-						h5 SOUTH SEATTLE URBAN BUSINESS SPACES
-						h1 Location, Amenities, Energy
-						p SoDo Urbanworks (Formerly City Commerce Business Park) is a multi-tenant property located in the heart of South Seattle. The park’s eclectic mix of tenants and spaces reflects the old-world industry and progressive urban renewal that characterize the SoDo neighborhood. We have prime Industrial and Mixed-Use-Retail spaces available for lease, with direct visibility from 1st Ave South and easy access to I-5. 
-						a.btn.btn-lg.btn-white(href='#', role='button') See available spaces &gt;
-		.row.voffset-lrg
-			.col-md-12.big-map
-				div
-					a.btn.btn-lg.btn-white(href='#', role='button') View Map &gt;
-		.row.voffset-lrg
-			.col-md-12.double-rule-gray
-				div
-	.container-fluid
-		.row.image-strip
-			div
-	.tenants-wrapper
-		.container.tenants.voffset-lrg
-			.row
-				.col-md-12
-					span.double-rule
-					h2.our-tenants Our Tenants
-					span.double-rule
-			.row.tenants-row
-				.col-lg-2.col-md-3.col-sm-6.logo1
-					div
-						img(src="../tw-images/vespa-logo.png")
-				.col-lg-2.col-md-3.col-sm-6.logo2
-					div
-						img(src="../tw-images/vespa-logo.png")
-				.col-lg-2.col-md-3.col-sm-6.logo3
-					div
-						img(src="../tw-images/vespa-logo.png")
-				.col-lg-2.col-md-3.col-sm-6.logo4
-					div
-						img(src="../tw-images/vespa-logo.png")
-				.col-lg-2.col-md-3.col-sm-6.logo5
-					div
-						img(src="../tw-images/vespa-logo.png")
-				.col-lg-2.col-md-3.col-sm-6.logo6
-					div
-						img(src="../tw-images/vespa-logo.png")
-			.row
-				.col-md-12.button-container
-					a.btn.btn-lg.btn-white(href='#', role='button') See All Tenants &gt;
+				.cols-wrap
+					.col-sm-4
+						img(src="../tw-images/featured-a.jpg")
+						h4 Name of Tenant
+						p In 2006 Schooner EXACT was created; the brainchild of three friends over a batch of homebrew. Our mission was to provide quality craft beer for our neighborhood.
+						a(href="#") website.com
+					.col-sm-4
+						img(src="../tw-images/featured-b.jpg")
+						h4 Name of Tenant
+						p In 2006 Schooner EXACT was created; the brainchild of three friends over a batch of homebrew. Our mission was to provide quality craft beer for our neighborhood.
+						a(href="#") website.com
+					.col-sm-4
+						img(src="../tw-images/featured-c.jpg")
+						h4 Name of Tenant
+						p In 2006 Schooner EXACT was created; the brainchild of three friends over a batch of homebrew. Our mission was to provide quality craft beer for our neighborhood.
+						a(href="#") website.com
+					
+		.row.voffset-margin
+			.col-md-12.sodo-table
+				div#no-more-tables-wrap
+					h2 Tenant Directory
+					div#no-more-tables
+						include inc/tenants-table.html
+					.ready 
+						h3 Ready to Join This List?
+						a.btn.btn-lg.btn-white(href="available-spaces.html") See Available Spaces &gt;
+	+modal("Site Plan", "site-plan", "../tw-images/property-site-plan.svg")
 	include _footer.jade

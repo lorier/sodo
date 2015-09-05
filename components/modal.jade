@@ -1,5 +1,5 @@
 //- modal
-mixin modal(title,id)
+mixin modal(title,id,imagePath)
 	.modal.fade(id="#{id}",tabindex="-1",role="dialog",aria-labelledby="#{id}Label" aria-hidden="true")
 		.modal-dialog
 			.modal-content
@@ -9,6 +9,9 @@ mixin modal(title,id)
 						span.sr-only Close
 					h4.modal-title(id="#{id}Label")= title
 				.modal-body
-					block
+					div
+						img(src=imagePath)
 				.modal-footer
 					button.btn.btn-default(type="button",data-dismiss="modal") Close
+					button.btn.btn-default(type="button")
+						a(href="../tw-html/site-plan-large.html",target="_blank") View Full Size

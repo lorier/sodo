@@ -13,7 +13,7 @@ block prepend body
 		.container
 			.row
 				.col-md-12
-	.container.container-intro.voffset-lrg 
+	.container.container-intro.voffset-margin 
 		.intro-wrap
 			.row
 				.col-md-6
@@ -59,47 +59,20 @@ block prepend body
 							li 
 								+icon("ok")
 								|  16’ to 20’ clear height  
-						a.btn.btn-lg.btn-white(href='#', role='button') 
+						a.btn.btn-lg.btn-white(href='#', role='button')
 							+icon("download-alt")
 							&nbsp;
 							| Download Sales Sheet
-		.row.site-plan
-			.col-md-12
+		.row.voffset-margin.hidden-sm.hidden-xs
+			.col-md-12.site-plan
 				div
-		.row.voffset-lrg.hidden-xs.hidden-sm
+					a.btn.btn-lg.btn-white.panel-button(data-toggle="modal", data-target="#site-plan") View Larger &gt;
+		.row.hidden-xs.hidden-sm
 			.col-md-12.double-rule-gray
 				div
-		.row.voffset-lrg
+		.row.voffset-margin
 			.col-md-12.big-map
 				div
 					a.btn.btn-lg.btn-white.panel-button(href='available-spaces.html', role='button') View Map &gt;
-	.tenants-wrapper
-		.container.tenants.voffset-lrg
-			.row
-				.col-md-12
-					span.double-rule
-					h2.our-tenants Our Tenants
-					span.double-rule
-			.row.tenants-row
-				.col-lg-2.col-md-3.col-sm-6.logo1
-					div
-						img(src="../tw-images/vespa-logo.png")
-				.col-lg-2.col-md-3.col-sm-6.logo2
-					div
-						img(src="../tw-images/vespa-logo.png")
-				.col-lg-2.col-md-3.col-sm-6.logo3
-					div
-						img(src="../tw-images/vespa-logo.png")
-				.col-lg-2.col-md-3.col-sm-6.logo4
-					div
-						img(src="../tw-images/vespa-logo.png")
-				.col-lg-2.col-md-3.col-sm-6.logo5
-					div
-						img(src="../tw-images/vespa-logo.png")
-				.col-lg-2.col-md-3.col-sm-6.logo6
-					div
-						img(src="../tw-images/vespa-logo.png")
-			.row
-				.col-md-12.button-container
-					a.btn.btn-lg.btn-white(href='#', role='button') See All Tenants &gt;
+	+modal("Site Plan", "site-plan", "../tw-images/property-site-plan.svg")
 	include _footer.jade

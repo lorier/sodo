@@ -18,10 +18,12 @@ $sodoLightGray: #898989;
 $sodoGrayRule: #5e5e5e;
 $sodoTan: #f4f2ea;
 $sodoCyan: #0dacbf;
+$sodoTableBg: #e8e8e8;
 
 $grayRule: 1px solid $sodoGrayRule;
 //== Helpers
-.voffset-lrg { padding-top: 30px; padding-bottom: 30px;  }
+.voffset-margin { margin-top: 30px; margin-bottom: 30px;  }
+.voffset-padding { padding-top: 30px; padding-bottom: 30px;  }
 //== Scaffolding
 //
 //## Settings for some of the most global styles.
@@ -200,7 +202,7 @@ body {
 	padding-top: 60px;
 	padding-right: 140px;
 	@media (max-width: $screen-sm-max){
-		padding-right: inherit;
+		padding-right: 0;
 		text-align: center;
 		padding-top: 10px;
 	}
@@ -234,7 +236,7 @@ body {
 
 .double-rule-gray div {
 	width: 100%;
-	background: #fff url("../tw-images/double-rule-gray.png") 0 0 repeat-x;
+	background: #fff url("../tw-images/double-rule-gray.png") center center repeat-x;
 	height: 20px;
 }
 //==Image Strip
@@ -320,22 +322,38 @@ body {
 	height: 373px;
 	background: $sodoDarkGray url("../tw-images/property-image-strip.jpg") no-repeat center center; 
 	text-align: center;
+	@media (max-width: $screen-sm-max){
+		height: 200px;
+		background-size: auto 200px;
+	}
+}
+.property .intro,
+.benefits div {
+	padding: 50px;
+	@media (max-width: $screen-sm-max){
+		padding:10px;
+	}
 }
 .property .intro {
-	padding: 50px;
 	font-size: 15px;
+	@media (max-width: $screen-sm-max){
+		text-align: left;
+		padding-top: 0;
+		margin-bottom: 30px;
+	}
 }
 .benefits {
-	height: 430px;
+	height: 460px;
 }
 .benefits div {
 	background-color: $sodoCyan;
-	padding: 30px;
-	height: 100%;
+	padding: 50px;	height: 100%;
 	border-top: 9px solid $sodoTan;
 	border-right: 9px solid $sodoTan;
 	border-bottom: 9px solid $sodoTan;
-
+	@media (max-width: $screen-sm-max){
+		border: 0;
+	}
 }
 .benefits li span {
 	font-size: 12px;
@@ -346,7 +364,7 @@ body {
 	margin-right: 3px;
 }
 .benefits h3 {
-	margin: 0;
+	margin: 0 0 30px;
 	border-top: 1px solid white;
 	border-bottom: 1px solid white;
 	text-transform: uppercase;
@@ -356,12 +374,30 @@ body {
 }
 .benefits li {
 	font-size: 17px;
-
+	margin-bottom: 8px;
 }
 .benefits .btn {
 	color: white;
 	background-color: $sodoCyan;
 	border-color: white;
+}
+.site-plan {
+	@media (max-width: $screen-sm-max){
+		padding: 0;
+	}
+}
+.site-plan div {
+	background: $sodoTan url("../tw-images/property-site-plan.jpg") top center no-repeat;
+	background-size: 100% auto ;
+	height: 514px;
+	position: relative;
+	
+	@media (max-width: $screen-sm-max){
+		background-size: auto 100%  ;
+	}
+}
+.modal-dialog {
+	width: 80%
 }
 
 //== Leasing
@@ -384,12 +420,126 @@ body {
 	background: $sodoMediumGray url("../tw-images/leasing-image-strip.jpg") top center no-repeat;
 }
 
+//== Available Spaces
+.available .hero {
+	overflow: hidden;
+	text-align: center;
+	background: $sodoMediumGray url("../tw-images/available-space-hero.jpg") top center no-repeat;
+	height: 400px;
+	background-size: cover;
+}
+//== Tenant Directory
+.cols-wrap{
+	padding: 20px;
+	padding-bottom: 40px;
+}
+.ready {
+	text-align: center;
+}
+.ready h3 {
+	display: inline-block;
+	margin-right: 10px;
+}
+.ready a {
+	margin-top: 0;
+}
+//== Tables
+.sodo-table div#no-more-tables-wrap {
+	border-top: 10px solid $sodoCyan;
+	border-bottom: 10px solid $sodoCyan;
+	font-size: 18px;
+	background-color: $sodoTableBg;
+	padding: 20px;
+	padding-bottom: 15px; 
+}
+.sodo-table th {
+	color: $sodoCyan;
+	font-size: 21;
+	font-family: $headings-font-family;
+	font-weight: 600;
+}
+.sodo-table .text {
+	width: 40%;
+}
+.sodo-table .det-button {
+	text-align: right;
+}
+.sodo-table thead>tr>th {
+	border-bottom: none;
+}
+.sodo-table tbody>tr>td {
+	border-color: #b7b7b7;
+	padding: 12px;
+}
+.sodo-table .det-button a {
+	@extend .btn;
+	@extend .btn-lg;
+	@extend .btn-white;
+	margin-top: 0;
+}
+//http://elvery.net/demo/responsive-tables/#no-more-tables
+@media only screen and (max-width: 800px) {
+	
+	.text {
+		width: 100%;
+	}
+	/* Force table to not be like tables anymore */
+	#no-more-tables table, 
+	#no-more-tables thead, 
+	#no-more-tables tbody, 
+	#no-more-tables th, 
+	#no-more-tables td, 
+	#no-more-tables tr { 
+		display: block; 
+	}
+ 
+	/* Hide table headers (but not display: none;, for accessibility) */
+	#no-more-tables thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+  
+	#no-more-tables td { 
+		/* Behave  like a "row" */
+		border: none;
+		// border-bottom: 1px solid #b7b7b7; 
+		position: relative;
+		padding-left: 35%; 
+		white-space: normal;
+		text-align:left;
+	}
+	#no-more-tables tr{
+		border-bottom: 1px solid #b7b7b7; 
+	}
+ 
+	#no-more-tables td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+		text-align:left;
+		font-weight: 600;
+		color: $sodoCyan;
+	}
+	#no-more-tables .det-button {
+	    padding-bottom: 20px;
+	}
+ 
+	/*
+	Label the data
+	*/
+	#no-more-tables td:before { content: attr(data-title); }
+}
 
 //== Footer
 .footer-wrapper {
  	background-color: $sodoMediumGray;
  	padding-top:27px;
- 	margin-top: 50px;
  	position: relative;
 }
 footer.container-fluid {

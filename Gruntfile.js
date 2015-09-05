@@ -37,6 +37,7 @@ var build_state = 'prod',
     ],
     watched_jade_files = [
         'tw-jade/*.jade',
+        'tw-jade/inc/*.*',
         '_bootstrap.jade',
         'components/*.jade'
     ];
@@ -113,7 +114,8 @@ module.exports = function(grunt) {
           "tw-html/property.html": "tw-jade/property.jade",
           "tw-html/available-spaces.html": "tw-jade/available-spaces.jade",
           "tw-html/tenant-directory.html": "tw-jade/tenant-directory.jade",
-          "tw-html/leasing-info.html": "tw-jade/leasing-info.jade"
+          "tw-html/leasing-info.html": "tw-jade/leasing-info.jade",
+          "tw-html/site-plan-large.html": "tw-jade/site-plan-large.jade"
 
 	    }
 	  },
@@ -129,7 +131,8 @@ module.exports = function(grunt) {
           "tw-html/property.html": "tw-jade/property.jade",
           "tw-html/available-spaces.html": "tw-jade/available-spaces.jade",
           "tw-html/tenant-directory.html": "tw-jade/tenant-directory.jade",
-          "tw-html/leasing-info.html": "tw-jade/leasing-info.jade"
+          "tw-html/leasing-info.html": "tw-jade/leasing-info.jade",
+          "tw-html/site-plan-large.html": "tw-jade/site-plan-large.jade"
 	    }
 	  }
 	} // jade
