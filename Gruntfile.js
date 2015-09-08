@@ -15,29 +15,20 @@ grunt prod
     // this value will be used for both the
     // initial process when `grunt` alone is run
     // as well as the tasks run via watch
-var build_state = 'prod',
+var build_state = 'dev',
     // sass src files are loaded with sass includes
     // no need to list them here (i.e. only one sass src)
     sass_files = {
-         "tw-css/style.css": "tw-scss/tw-sass.scss"
+         "dev/tw-css/style.css": "dev/tw-scss/tw-sass.scss"
     },
     // watch all .scss files in our sass directory
     // for changes
-    watched_sass_files = [ 'tw-scss/tw-sass.scss' ],
-    uglify_source_files = [
-        'js/vendor/**/*.js',
-        'js/custom/javascript.js',
-    ],
-    uglify_files = {
-        'js/javascript.min.js': uglify_source_files
-    },
-    watched_js_files = [
-        'js/vendor/**/*.js',
-        'js/custom/*.js',
+    watched_sass_files = [ 
+        'dev/tw-scss/tw-sass.scss' 
     ],
     watched_jade_files = [
-        'tw-jade/*.jade',
-        'tw-jade/inc/*.*',
+        'dev/tw-jade/*.jade',
+        'dev/tw-jade/inc/*.*',
         '_bootstrap.jade',
         'components/*.jade'
     ];
@@ -47,22 +38,6 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
-    /* disabling js uglify for now LR
-	    uglify: {
-	      // `grunt uglify:dev`
-	        dev: {
-	            files: uglify_files,
-	            options: {
-	                beautify: true,
-	                mangle: false
-	            },
-	        },
-	        // `grunt uglify:prod`
-	        prod: {
-	            files: uglify_files
-	        },*/
-    
-   
      // `grunt watch`
     watch: {
         sass: {
@@ -70,34 +45,31 @@ module.exports = function(grunt) {
             tasks: ["sass:"+build_state],
             options: {
                 livereload: true,
-            }
+            },
         },
         jade: {
         	files: watched_jade_files,
         	tasks: ["jade:"+build_state],
-        	options: {
-        		livereload: true,
-        	}
+            options: {
+                livereload: true,
+            },
         }
     }, // watch
-     //Pulled from my AAAA Mini
     //https://github.com/sindresorhus/grunt-sass
     sass: {                            
     // `grunt sass:dev`
         dev: {
             options: { outputStyle: "nested", sourceMap: true },
-            files: sass_files,
+            files: {
+                "dev/css/style.css": "dev/tw-scss/tw-sass.scss"
+            }
         },
         // `grunt sass:prod`
         prod: {
-            options: { outputStyle: "compressed", sourceMap: true },
-            files: sass_files,
-        },
-        releaseUnmin: {
-            options: { style: "normal" },
+            options: { outputStyle: "compressed", sourceMap: false },
             files: {
-                "tw-css/style.css": "tw-scss/tw-sass.scss"
-            },
+                "dist/css/style.css": "dev/tw-scss/tw-sass.scss"
+            }
         }
     },
     //https://github.com/gruntjs/grunt-contrib-jade
@@ -106,36 +78,53 @@ module.exports = function(grunt) {
 	    options: {
 	    	pretty: true,
 	      data: {
-	        debug: false  
+	        debug: true  
 	      }
 	    },
-	    files: {
-	      "tw-html/index.html": "tw-jade/index.jade",
-          "tw-html/property.html": "tw-jade/property.jade",
-          "tw-html/available-spaces.html": "tw-jade/available-spaces.jade",
-          "tw-html/tenant-directory.html": "tw-jade/tenant-directory.jade",
-          "tw-html/leasing-info.html": "tw-jade/leasing-info.jade",
-          "tw-html/site-plan-large.html": "tw-jade/site-plan-large.jade"
-
-	    }
+	    files: [ { 
+          expand: true, 
+          src: "**/*.jade", 
+          dest: "dev/", 
+          cwd: "dev/tw-jade/", 
+          ext: '.html'
+        } ]
 	  },
 	  prod: {
-	  	 options: {
-	    	pretty: true,
-	      data: {
-	        debug: false  
-	      }
+	  	options: {
+            pretty: false,
+            data: {
+	           debug: false  
+            }
 	    },
-	    files: {
-          "tw-html/index.html": "tw-jade/index.jade",
-          "tw-html/property.html": "tw-jade/property.jade",
-          "tw-html/available-spaces.html": "tw-jade/available-spaces.jade",
-          "tw-html/tenant-directory.html": "tw-jade/tenant-directory.jade",
-          "tw-html/leasing-info.html": "tw-jade/leasing-info.jade",
-          "tw-html/site-plan-large.html": "tw-jade/site-plan-large.jade"
-	    }
+        // http://stackoverflow.com/questions/14089921/how-to-copy-compiled-jade-files-to-a-destination-folder-using-grunt
+	    files: [ { 
+          expand: true, 
+          src: "**/*.jade", 
+          dest: "dist/", 
+          cwd: "dev/tw-jade/", 
+          ext: '.html'
+        } ]
 	  }
-	} // jade
+	}, //jade
+    imagemin: {
+        prod: {                         // Another target
+              files: [{
+                expand: true,                  // Enable dynamic expansion
+                cwd: 'dev/tw-images/',                   // Src matches are relative to this path
+                src: ['**/*.{png,jpg,gif,svg}'],   // Actual patterns to match
+                dest: 'dist/tw-images/'                  // Destination path prefix
+              }]
+            }
+    },
+    copy: {
+        prod: {
+           expand: true, 
+           cwd: 'dev/fonts/',                   // Src matches are relative to this path
+           src: ['**/*'], 
+           dest: 'dist/fonts/', 
+           filter: 'isFile'
+       }
+    }
   });
 
 
@@ -145,15 +134,27 @@ module.exports = function(grunt) {
     // (note: watch also uses build_state when generating output)
     grunt.registerTask('default', [build_state, 'watch']);
 
+    //to minify images
+    grunt.registerTask('minify', ['newer:imagemin:prod']);
+    
+    //TODO set up to be used with minify
+    // grunt.registerTask('newer', ['newer:jshint:all']);
+    
     // when `grunt prod` is run, do the following tasks
-    grunt.registerTask('prod', ['sass:prod', 'jade:prod']);
+    grunt.registerTask('prod', ['sass:prod', 'jade:prod', 'newer:imagemin:prod', 'newer:copy:prod']);
 
     // when `grunt dev` is run, do the following tasks
-    grunt.registerTask('dev', ['sass:dev', 'jade:prod']);
+    grunt.registerTask('dev', ['sass:dev', 'jade:dev']);
+
+    grunt.registerTask('copy', ['copy:prod']);
 
      // load these tasks (necessary to allow use of sass, watch, and uglify
     grunt.loadNpmTasks("grunt-sass");
     grunt.loadNpmTasks("grunt-contrib-watch");
     grunt.loadNpmTasks("grunt-contrib-uglify");
     grunt.loadNpmTasks("grunt-contrib-jade");
+    grunt.loadNpmTasks("grunt-contrib-copy");
+    grunt.loadNpmTasks("grunt-contrib-imagemin");
+    grunt.loadNpmTasks("grunt-newer");
+
 };

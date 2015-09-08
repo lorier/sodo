@@ -1,0 +1,48 @@
+extends ../../_bootstrap
+append styles
+	// Custom styles for this template
+	//- link(href='../css/starter-template.css', rel='stylesheet')
+block prepend body
+	body.tenant-directory
+	+navbar-fixed("Sodo Urbanworks","navbar","inverse")
+		+nav_item("property.html") The Property
+		+nav_item("available-spaces.html") Available Spaces
+		+nav_item("tenant-directory.html", "active") Tenant Directory
+		+nav_item("leasing-info.html") Leasing Info
+	.container.container-intro
+		.intro-wrap.voffset-margin
+			.row
+				.col-md-12
+					h1 Featured Tenants
+			.row
+				.cols-wrap.featured
+					.col-sm-4
+						img(src="tw-images/featured-a.jpg")
+						h4 Name of Tenant
+						p In 2006 Schooner EXACT was created; the brainchild of three friends over a batch of homebrew. Our mission was to provide quality craft beer for our neighborhood.
+						p 
+							a(href="#") website.com
+					.col-sm-4
+						img(src="tw-images/featured-b.jpg")
+						h4 Name of Tenant
+						p In 2006 Schooner EXACT was created; the brainchild of three friends over a batch of homebrew. Our mission was to provide quality craft beer for our neighborhood.
+						p 
+							a(href="#") website.com
+					.col-sm-4
+						img(src="tw-images/featured-c.jpg")
+						h4 Name of Tenant
+						p In 2006 Schooner EXACT was created; the brainchild of three friends over a batch of homebrew. Our mission was to provide quality craft beer for our neighborhood.
+						p 
+							a(href="#") website.com
+					
+		.row.voffset-margin
+			.col-md-12.sodo-table
+				div#no-more-tables-wrap
+					h2 Tenant Directory
+					div#no-more-tables
+						include inc/tenants-table.html
+					.ready 
+						h3 Ready to Join This List?
+						a.btn.btn-lg.btn-white(href="available-spaces.html") See Available Spaces &gt;
+	+modal("Site Plan", "site-plan", "tw-images/property-site-plan.svg")
+	include _footer.jade

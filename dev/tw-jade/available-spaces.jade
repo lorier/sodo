@@ -1,0 +1,51 @@
+extends ../../_bootstrap
+append styles
+	// Custom styles for this template
+	//- link(href='../css/starter-template.css', rel='stylesheet')
+block prepend body
+	body.available
+	+navbar-fixed("Sodo Urbanworks","navbar","inverse")
+		+nav_item("property.html") The Property
+		+nav_item("available-spaces.html", "active") Available Spaces
+		+nav_item("tenant-directory.html") Tenant Directory
+		+nav_item("leasing-info.html") Leasing Info
+	.container.container-intro
+		.intro-wrap.voffset-margin
+			.row
+				.col-md-6.hidden-xs
+					div.hero
+				.col-md-6
+					.intro
+						.double-rule-cyan
+						h1 Available Spaces
+						p SoDo Urban Works offers a variety of spaces and configurations, all with 16’ - 20’ clear height and available parking. We are happy to work with our tenants on build outs and signage opportunities.
+						ul.stats
+							li 
+								strong Total Rentable Space
+								|: 27,882 SF
+							li 
+								strong Rental Rate
+								|: $0.90 - $1.33 /SF/Month
+							li 
+								strong Min. Divisible Space
+								|: 4,406 SF
+							li 
+								strong Max. Contiguous Space
+								|: 6,065 SF
+							li 
+								strong Zoning Designation
+								|: Industrial General (IG1 U/85)
+						p Contact our leasing agent for more information.
+
+						a.btn.btn-lg.btn-white(href='mailto:example@email.com', role='button') Leasing Info &gt;
+		.row.voffset-margin
+			.col-md-12.sodo-table
+				div#no-more-tables-wrap
+					div#no-more-tables
+						include inc/available-table.html
+		.row.voffset-margin.hidden-sm.hidden-xs
+			.col-md-12.site-plan
+				div
+					a.btn.btn-lg.btn-white.panel-button(data-toggle="modal", data-target="#site-plan") View Larger &gt;
+	+modal("Site Plan", "site-plan", "tw-images/property-site-plan.svg")
+	include _footer.jade
