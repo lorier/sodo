@@ -66,7 +66,7 @@ block prepend body
 		.row.voffset-margin.hidden-sm.hidden-xs
 			.col-md-12.site-plan
 				div
-					a.btn.btn-lg.btn-white.panel-button(data-toggle="modal", data-target="#site-plan") View Larger &gt;
+					a.btn.btn-lg.btn-white.site-plan-button(data-toggle="modal", data-target="#site-plan") View Site Plan &gt;
 		.row.hidden-xs.hidden-sm
 			.col-md-12.double-rule-gray
 				div
@@ -74,5 +74,5 @@ block prepend body
 			.col-md-12.big-map
 				div
 					a.btn.btn-lg.btn-white.panel-button(href='available-spaces.html', role='button') View Map &gt;
-	+modal("Site Plan", "site-plan", "tw-images/property-site-plan.svg")
-	include _footer.jade
+	+modal("Site Plan", "site-plan", "tw-images/property-site-plan.jpg")
+	include inc/_footer.jade
