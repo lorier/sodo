@@ -441,9 +441,9 @@ body {
 	.quote-image {
 		overflow: hidden;
 		text-align: center;
-		background-image:  url("../tw-images/quote.svg"), url("../tw-images/leasing-quote-image.jpg");
-		background-position: center center, center center;
-		background-repeat: no-repeat, no-repeat;
+		background-image:url("../tw-images/leasing-quote-image.jpg");
+		background-position: center center;
+		background-repeat: no-repeat;
 		background-color: $sodoMediumGray;
 		height: 400px;
 		background-size: cover;
@@ -452,8 +452,9 @@ body {
 		}
 	}
 	.agent-info {
-		font-size: 20px;
-		line-height: 28px;
+		padding-top: 15px;
+		font-size: 18px;
+		line-height: 26px;
 	}
 	.image-strip div {
 		height: 374px;
