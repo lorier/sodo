@@ -15,7 +15,7 @@ grunt prod
     // this value will be used for both the
     // initial process when `grunt` alone is run
     // as well as the tasks run via watch
-var build_state = 'dev',
+var build_state = 'prod',
     // sass src files are loaded with sass includes
     // no need to list them here (i.e. only one sass src)
     sass_files = {
@@ -113,7 +113,14 @@ module.exports = function(grunt) {
                 cwd: 'dev/tw-images/',                   // Src matches are relative to this path
                 src: ['**/*.{png,jpg,gif,svg}'],   // Actual patterns to match
                 dest: 'dist/tw-images/'                  // Destination path prefix
-              }]
+              },
+              {
+                expand: true,                  // Enable dynamic expansion
+                cwd: 'dev/lease-images/',                   // Src matches are relative to this path
+                src: ['**/*.{png,jpg,gif,svg,pdf}'],   // Actual patterns to match
+                dest: 'dist/lease-images/'                  // Destination path prefix
+              }
+              ]
             }
     },
     copy: {

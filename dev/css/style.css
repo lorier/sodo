@@ -6014,6 +6014,9 @@ body {
 .home .intro {
   padding-top: 30px;
   padding-right: 140px; }
+  .home .intro p {
+    font-size: 16px;
+    line-height: 26px; }
   @media (max-width: 991px) {
     .home .intro {
       padding-right: 0;
@@ -6093,7 +6096,7 @@ body {
   .tenants-row div.logo2 div {
     background-color: #fb5c21; }
   .tenants-row div.logo3 div {
-    background-color: #607bdf; }
+    background-color: white; }
   .tenants-row div.logo4 div {
     background-color: #303030; }
   .tenants-row div.logo5 div {
@@ -6101,9 +6104,8 @@ body {
   .tenants-row div.logo6 div {
     background-color: black; }
   .tenants-row div img {
-    width: 80%;
     max-width: 130px;
-    max-height: 130px; }
+    max-height: 95px; }
 
 .tenants .button-container {
   text-align: right;
@@ -6130,13 +6132,11 @@ body {
     .benefits div {
       padding: 30px; } }
 
-.property .intro {
-  font-size: 15px; }
-  @media (max-width: 991px) {
-    .property .intro {
-      text-align: left;
-      padding: 0;
-      padding-bottom: 30px; } }
+@media (max-width: 991px) {
+  .property .intro {
+    text-align: left;
+    padding: 0;
+    padding-bottom: 30px; } }
 
 .benefits {
   height: 460px; }
@@ -6229,7 +6229,7 @@ body {
   background: #303030 url("../tw-images/leasing-image-strip.jpg") top center no-repeat; }
 
 .available .col-md-6 {
-  height: 500px; }
+  height: 400px; }
   @media (max-width: 991px) {
     .available .col-md-6 {
       height: 400px; } }
@@ -6250,6 +6250,47 @@ body {
     .available .intro {
       padding-top: 10px;
       padding-right: 0; } }
+
+.tenant-directory .featured {
+  margin-left: 20px;
+  margin-right: 20px; }
+
+.tenant-directory .featured .col-sm-3 {
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left; }
+  .tenant-directory .featured .col-sm-3 .table-container {
+    width: 100%;
+    display: table;
+    text-align: center; }
+    .tenant-directory .featured .col-sm-3 .table-container div {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      height: 200px; }
+  .tenant-directory .featured .col-sm-3.logo1 div:first-child {
+    background-color: black; }
+  .tenant-directory .featured .col-sm-3.logo2 div:first-child {
+    background-color: #fb5c21; }
+  .tenant-directory .featured .col-sm-3.logo3 div:first-child {
+    background-color: white; }
+  .tenant-directory .featured .col-sm-3.logo4 div:first-child {
+    background-color: #303030; }
+  .tenant-directory .featured .col-sm-3.logo5 div:first-child {
+    background-color: #608a29; }
+  .tenant-directory .featured .col-sm-3.logo6 div:first-child {
+    background-color: black; }
+  .tenant-directory .featured .col-sm-3.logo7 div:first-child {
+    background-color: #fb5c21; }
+  .tenant-directory .featured .col-sm-3 img {
+    max-width: 130px;
+    max-height: 130px; }
+  .tenant-directory .featured .col-sm-3.logo3 img {
+    max-width: 180px; }
+  .tenant-directory .featured .col-sm-3.logo6 img {
+    width: 100%;
+    max-width: 180px; }
 
 .tenant-directory .cols-wrap {
   padding: 20px;
@@ -6310,7 +6351,7 @@ body {
 .sodo-table div#no-more-tables-wrap {
   border-top: 10px solid #0dacbf;
   border-bottom: 10px solid #0dacbf;
-  font-size: 18px;
+  font-size: 16px;
   background-color: #e8e8e8;
   padding: 20px;
   padding-bottom: 15px; }

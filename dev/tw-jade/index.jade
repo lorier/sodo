@@ -1,6 +1,12 @@
 extends ../../_bootstrap
 append styles
 	// Custom styles for this template
+	link(rel="apple-touch-icon" sizes="180x180" href="tw-images/apple-touch-icon.png")
+	link(rel="icon" type="image/png" href="tw-images/favicon-32x32.png" sizes="32x32")
+	link(rel="icon" type="image/png" href="tw-images/favicon-16x16.png" sizes="16x16")
+	link(rel="manifest" href="tw-images/manifest.json")
+	link(rel="mask-icon" href="tw-images/safari-pinned-tab.svg" color="#000000")
+	meta(name="theme-color" content="#000000")
 block prepend body
 	body.home
 	+navbar-fixed("Sodo Urbanworks","navbar","inverse")
@@ -16,14 +22,15 @@ block prepend body
 	.container.container-intro
 		.intro-wrap
 			.row
-				.col-md-5.hidden-xs.hidden-sm
+				.col-md-4.hidden-xs.hidden-sm
 					+carousel("home-carousel",[{image:"tw-images/home-carousel-1.jpg"},	{image:"tw-images/home-carousel-2.jpg"}, {image:"tw-images/home-carousel-3.jpg"},{image:"tw-images/home-carousel-4.jpg"}])
-				.col-md-7
+				.col-md-8
 					.intro
 						.double-rule-cyan
 						h5 SOUTH SEATTLE URBAN BUSINESS SPACES
 						h1 Location, Amenities, Energy
 						p SODO Urbanworks (Formerly City Commerce Business Park) is a multi-tenant property located in the heart of South Seattle. The park’s eclectic mix of tenants and spaces reflects the old-world industry and progressive urban renewal that characterize the SODO neighborhood.
+						a.btn.btn-lg.btn-white(href='available-spaces.html', role='button') See Available Spaces &gt;
 
 		.row.voffset-margin
 			.col-md-12.big-map
@@ -51,7 +58,7 @@ block prepend body
 						img(src="tw-images/tenantlogos_layers_0001_rotie.png")
 				.col-lg-2.col-md-4.col-xs-6.logo3
 					div
-						img(src="tw-images/tenantlogos_layers_0002_schooner.png")
+						img(src="tw-images/tenantlogos_layers_0000_soh.png")
 				.col-lg-2.col-md-4.col-xs-6.logo4
 					div
 						img(src="tw-images/tenantlogos_layers_0003_structure.png")
